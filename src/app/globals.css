@@ -3,13 +3,15 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #fafafa;
-  --foreground: #171717;
+  --background: var(--color-neutral-100);
+  --foreground: var(--color-neutral-900);
+  --post-text: var(--color-neutral-900);
 }
 
 [class="dark"] {
-  --background: #171717;
-  --foreground: #fafafa;
+  --background: var(--color-neutral-900);
+  --foreground: var(--color-neutral-100);
+  --post-text: var(--color-neutral-100);
 }
 
 @layer base {
@@ -65,6 +67,34 @@
     @apply w-full mb-8;
   }
 
+  hr {
+    @apply text-neutral-300 dark:text-neutral-700 my-2;
+  }
+
+  table {
+    @apply table-auto table overflow-x-auto;
+  }
+
+  th,
+  td {
+    @apply border border-neutral-500 px-4 py-2;
+  }
+
+  pre:has(code) {
+    @apply block bg-neutral-800 font-mono px-4 py-3 rounded-2xl mb-8 mt-2;
+  }
+
+  code {
+    @apply bg-neutral-800 text-neutral-200 rounded px-2 font-mono;
+  }
+
+  pre code {
+    @apply bg-transparent p-0;
+  }
+
+  iframe {
+    @apply !max-w-full my-2;
+  }
   /* a {
     @apply underline;
   } */
@@ -78,6 +108,15 @@
     width: 20px;
     border-radius: 10px;
     background: url("/x.svg") no-repeat 50% 50%;
+  }
+
+  blockquote {
+    @apply pl-10 py-6 pr-4 bg-neutral-800 border-l-4 border-neutral-400 my-4 relative before:content-[url('/quote.svg')] before:absolute before:top-0 before:left-0;
+  }
+
+  blockquote p {
+    @apply text-xl font-bold text-neutral-300;
+    /* font-family: var(--font-playfair); */
   }
 }
 

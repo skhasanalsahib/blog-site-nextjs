@@ -1,0 +1,16 @@
+.postBody {
+  color: var(--post-text);
+}
+
+.postBody :global(img) {
+  border-radius: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* .postBody :global(p) {
+  color: var(--color-neutral-900);
+}
+
+:global(.dark) .postBody :global(p) {
+  color: var(--color-neutral-100);
+} */
